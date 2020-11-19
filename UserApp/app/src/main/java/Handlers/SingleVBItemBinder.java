@@ -37,7 +37,7 @@ public class SingleVBItemBinder {
         b.decrementBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int quantity =  cart.addToCart(product,product.variants.get(0));
+                int quantity =  cart.removeFromCart(product,product.variants.get(0));
                 updateViews(quantity);
             }
         });

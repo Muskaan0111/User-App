@@ -3,7 +3,7 @@
 This is the preview of user's app :
 
 
-<img src="https://github.com/Muskaan0111/User-App/blob/master/UserApp/Pics/SAVE_20201119_013424.jpg" title="" alt=" " width="236">                   <img src="https://github.com/Muskaan0111/User-App/blob/master/UserApp/Pics/SAVE_20201119_013435.jpg" title="" alt=" " width="236">
+<img src="https://github.com/Muskaan0111/User-App/blob/master/UserApp/Pics/SAVE_20201119_094546.jpg" title="" alt=" " width="236">                   <img src="https://github.com/Muskaan0111/User-App/blob/master/UserApp/Pics/SAVE_20201119_094555.jpg" title="" alt=" " width="236">
 
 
 

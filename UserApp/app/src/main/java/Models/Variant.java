@@ -15,5 +15,9 @@ public class Variant {
     public String toString() {
         return  "Rs. "+" "+price;
     }
+
+    public String nameString()
+    { return name +" Rs." +price;}
+
 }
 

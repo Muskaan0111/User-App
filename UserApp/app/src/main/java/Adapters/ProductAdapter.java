@@ -85,7 +85,7 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             mvb.b.name.setText(product.name+" ");
             mvb.b.price.setText(product.getPrice());
 
-            new MultipleVBOrWBItemBinder();
+            new MultipleVBOrWBItemBinder().bindItems(mvb.b,product,cart);
         }
 
 

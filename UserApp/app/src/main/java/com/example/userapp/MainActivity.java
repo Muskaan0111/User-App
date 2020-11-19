@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.userapp.databinding.ActivityMainBinding;
+import com.example.userapp.databinding.SummaryDialogBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,10 +22,13 @@ import Adapters.ProductAdapter;
 import Models.Cart;
 import Models.Product;
 import Models.Variant;
+import Pickers.SummaryDialog;
 
 public class MainActivity extends AppCompatActivity {
 ActivityMainBinding b;
     private Cart cart = new Cart();
+    SummaryDialogBinding x ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +83,27 @@ ActivityMainBinding b;
         b.cartViewer.setVisibility(View.VISIBLE);
         b.cartPreview.setText(cartDetails);
 
+        configureButtons();
+
+
+
+    }
+
+    private void configureButtons() {
+
+        b.summaryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    new SummaryDialog().show(MainActivity.this, cart, new SummaryDialog.OnOkSelectedListener() {
+                        @Override
+                        public void onOkSelected() {
+
+                        }
+                    });
+
+
+            }
+        });
 
     }
 

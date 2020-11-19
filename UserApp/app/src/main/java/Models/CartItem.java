@@ -3,7 +3,7 @@ package Models;
 public class CartItem {
 
     String name;
-    float qty;
+    public float qty;
     int price;
 
     //in case of new addition to cart
@@ -21,6 +21,14 @@ public class CartItem {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "\n"+"Details : "+"\n" +"[" +
+                "Name=" + name + "\n" +
+                ", price=" + price +"\n"+
+                ", qty=" + qty +
+                ']';
+    }
 
 }
 

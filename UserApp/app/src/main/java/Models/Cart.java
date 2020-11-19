@@ -1,5 +1,7 @@
 package Models;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -155,8 +157,17 @@ public class Cart {
     }
 
 
+    public int getVariantQty(Product product, Variant variant) {
+        String detector = product.name + " " + variant.name;
 
+        if(mapOfItems.containsKey(detector)){
 
+            return (int )mapOfItems.get(detector).qty;
+
+        }
+
+        return  0;
+    }
 
 
 }

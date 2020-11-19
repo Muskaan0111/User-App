@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/variant_name"
+        app:layout_constraintEnd_toEndOf="@+id/variant_name"
+        app:layout_constraintStart_toStartOf="@+id/variant_name" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/increment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:clickable="true"
+        app:backgroundTint="#03A9F4"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@+id/variant_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_action_name" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/decrement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:clickable="true"
+        android:visibility="gone"
+        app:backgroundTint="#03A9F4"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@+id/variant_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_remove" />
+
+    <TextView
+        android:id="@+id/variant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="1Kg"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/increment"
+        app:layout_constraintStart_toEndOf="@+id/decrement"
+        app:layout_constraintTop_toBottomOf="@+id/qty" />
+</androidx.constraintlayout.widget.ConstraintLayout>

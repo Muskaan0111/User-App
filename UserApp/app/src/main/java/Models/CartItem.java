@@ -1,6 +1,8 @@
 package Models;
 
-public class CartItem {
+import java.io.Serializable;
+
+public class CartItem implements Serializable {
 
     String name;
     public float qty;
@@ -23,7 +25,7 @@ public class CartItem {
 
     @Override
     public String toString() {
-        return "\n"+"Details : "+"\n" +"[" +
+        return "\n" +"[" +
                 "Name=" + name + "\n" +
                 ", price=" + price +"\n"+
                 ", qty=" + qty +

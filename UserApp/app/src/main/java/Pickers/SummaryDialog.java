@@ -51,6 +51,7 @@ public class SummaryDialog {
     private void getSummaryData() {
        String summary =  cart.mapOfItems.toString();
 
+
        b.summary.setText(summary);
 
 

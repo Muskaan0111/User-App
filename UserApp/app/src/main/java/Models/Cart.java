@@ -2,11 +2,12 @@ package Models;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cart {
+public class Cart implements Serializable {
 
     // contains all items
     public Map<String, CartItem> mapOfItems = new HashMap<>();
@@ -51,6 +52,8 @@ public class Cart {
 
         return (int) mapOfItems.get(detector).qty;
     }
+
+
 
     public int removeFromCart(Product product, Variant variant) {
 

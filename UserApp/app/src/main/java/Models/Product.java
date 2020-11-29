@@ -1,9 +1,10 @@
 package Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Product {
+public class Product implements Serializable {
     public static final int WEIGHT_BASED=0,VARIANTS_BASED=1;
 
     public String name;

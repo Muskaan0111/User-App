@@ -1,6 +1,7 @@
 package com.example.userapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,14 +16,22 @@ import com.example.userapp.databinding.SummaryDialogBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 import Adapters.ProductAdapter;
 import Models.Cart;
 import Models.Inventory;
 import Models.Product;
+
 import Pickers.SummaryDialog;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity  {
 ActivityMainBinding b;
@@ -46,7 +55,51 @@ ActivityMainBinding b;
         app = (App) getApplicationContext();
         loadData();
         setupCheckout();
+
+
+        FirebaseMessaging.getInstance().subscribeToTopic("users");
+        sendNotification();
+
     }
+
+    public void sendNotification() {
+        String message = FormattingMessage
+                .getSampleMessage("users", "Welcome", "Welcome to the User App");
+
+        new SendFCM()
+                .send(message
+                        , new Callback() {
+                            @Override
+                            public void onFailure(@NotNull Call call, @NotNull final IOException e) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        new AlertDialog.Builder(MainActivity.this)
+                                                .setTitle("Failure")
+                                                .setMessage(e.toString())
+                                                .show();
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onResponse(@NotNull Call call, @NotNull final Response response) throws IOException {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        new AlertDialog.Builder(MainActivity.this)
+                                                .setTitle("Success")
+                                                .setMessage(response.toString()+"Hello Guys!")
+                                                .show();
+                                    }
+                                });
+
+
+                            }
+                        });
+
+    }
+
 
     private void loadData() {
         if(app.isOffline()){
